@@ -10,7 +10,7 @@ interface Article {
 }
 
 const baseSiteUrl =
-  process.env.NEXT_PUBLIC_BASE_SITE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_BASE_SITE_URL || "https://sunflower-dev.com";
 
 const TopNav = () => {
   const [isOpen, setIsOpen] = useState(false);
