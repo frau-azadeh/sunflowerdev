@@ -9,6 +9,7 @@ interface Article {
   title: string;
 }
 
+// استفاده از متغیر محیطی برای تعیین آدرس پایه
 const baseSiteUrl =
   process.env.NEXT_PUBLIC_BASE_SITE_URL || "https://sunflower-dev.com";
 
@@ -25,6 +26,7 @@ const TopNav = () => {
   };
 
   useEffect(() => {
+    console.log("Base Site URL:", baseSiteUrl); // برای دیباگ
     const fetchArticles = async () => {
       try {
         const response = await fetch(
@@ -63,7 +65,10 @@ const TopNav = () => {
     }
   };
 
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) => {
+    const fullPath = new URL(href, baseSiteUrl).pathname;
+    return pathname === fullPath;
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-[#ffe082] z-30">
@@ -104,11 +109,11 @@ const TopNav = () => {
               مهارت‌های من
             </Link>
             <Link
-              href="#contact"
+              href={`${baseSiteUrl}/#contact`}
               passHref
               scroll={false}
               className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
-                isActive("#contact")
+                isActive(`${baseSiteUrl}/#contact`)
                   ? "bg-[#56464d] text-white"
                   : "hover:bg-[#56464d] hover:text-white"
               }`}
@@ -119,7 +124,7 @@ const TopNav = () => {
               href={`${baseSiteUrl}/blog`}
               passHref
               className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
-                isActive(`${baseSiteUrl}/article`)
+                isActive(`${baseSiteUrl}/blog`)
                   ? "bg-[#56464d] text-white"
                   : "hover:bg-[#56464d] hover:text-white"
               }`}
@@ -128,7 +133,7 @@ const TopNav = () => {
             </Link>
           </div>
 
-          {/* search */}
+          {/* Search */}
           <div className="relative flex-1 max-w-xs ml-4">
             <input
               type="text"
@@ -143,7 +148,7 @@ const TopNav = () => {
                   <Link
                     className="block px-4 py-2 text-[#56464d] hover:bg-blue-50 hover:rounded-lg"
                     key={article.slug}
-                    href={`/blog/${article.category}/${article.slug}`}
+                    href={`${baseSiteUrl}/blog/${article.category}/${article.slug}`}
                     passHref
                   >
                     {article.title}
@@ -157,7 +162,7 @@ const TopNav = () => {
             </div>
           </div>
 
-          {/* responsive for mobile */}
+          {/* Responsive for mobile */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -191,7 +196,7 @@ const TopNav = () => {
         </div>
       </div>
 
-      {/* show nav mobile */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-[#ffe082] text-right px-4 py-2">
           <Link
@@ -217,7 +222,7 @@ const TopNav = () => {
           </Link>
           <Link
             className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white"
-            href="/#contact"
+            href={`${baseSiteUrl}/#contact`}
             passHref
             scroll={false}
           >
@@ -225,7 +230,7 @@ const TopNav = () => {
           </Link>
           <Link
             className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white"
-            href={`${baseSiteUrl}/blog/`}
+            href={`${baseSiteUrl}/blog`}
             passHref
           >
             مقالات من
