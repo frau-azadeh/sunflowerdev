@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 interface Article {
   slug: string;
@@ -9,7 +9,8 @@ interface Article {
   title: string;
 }
 
-const baseSiteUrl = "https://sunflower-dev.com"; // insert domain
+const baseSiteUrl =
+  process.env.NEXT_PUBLIC_BASE_SITE_URL || "http://localhost:3000";
 
 const TopNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +27,11 @@ const TopNav = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch(`https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article`);
+        const response = await fetch(
+          `https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article`
+        );
         const data = await response.json();
-        
+
         if (Array.isArray(data)) {
           setAllArticles(data);
         } else if (data && Array.isArray(data.articles)) {
@@ -49,7 +52,7 @@ const TopNav = () => {
     setSearchTerm(term);
 
     if (term.length > 2) {
-      const filteredResults = allArticles.filter(article =>
+      const filteredResults = allArticles.filter((article) =>
         article.title.toLowerCase().includes(term.toLowerCase())
       );
       setSearchResults(filteredResults);
@@ -67,44 +70,65 @@ const TopNav = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="hidden md:flex items-center space-x-4">
-            <Link href={`${baseSiteUrl}`} passHref
-                className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
-                  isActive(`${baseSiteUrl}`) ? "bg-[#56464d] text-white" : "hover:bg-[#56464d] hover:text-white"
-                }`}
-              >
-                صفحه اصلی
-            </Link>
-            <Link href={`${baseSiteUrl}/#about`} passHref
-                className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
-                  isActive(`${baseSiteUrl}/#about`) ? "bg-[#56464d] text-white" : "hover:bg-[#56464d] hover:text-white"
-                }`}
-              >
-                درباره من
-            </Link>
-            <Link href={`${baseSiteUrl}/#skill`} passHref
-                className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
-                  isActive(`${baseSiteUrl}/#skill`) ? "bg-[#56464d] text-white" : "hover:bg-[#56464d] hover:text-white"
-                }`}
-              >
-                مهارت‌های من
-            </Link>
-            <Link href="#contact" passHref scroll={false}
-                className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
-                  isActive("#contact") ? "bg-[#56464d] text-white" : "hover:bg-[#56464d] hover:text-white"
-                }`}
-              >
-                ارتباط با من         
-            </Link>
-            <Link href={`${baseSiteUrl}/blog`} passHref
-             className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
-              isActive(`${baseSiteUrl}/article`) ? "bg-[#56464d] text-white" : "hover:bg-[#56464d] hover:text-white"
-            }`}
+            <Link
+              href={`${baseSiteUrl}`}
+              passHref
+              className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
+                isActive(`${baseSiteUrl}`)
+                  ? "bg-[#56464d] text-white"
+                  : "hover:bg-[#56464d] hover:text-white"
+              }`}
             >
-                مقالات من
+              صفحه اصلی
+            </Link>
+            <Link
+              href={`${baseSiteUrl}/#about`}
+              passHref
+              className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
+                isActive(`${baseSiteUrl}/#about`)
+                  ? "bg-[#56464d] text-white"
+                  : "hover:bg-[#56464d] hover:text-white"
+              }`}
+            >
+              درباره من
+            </Link>
+            <Link
+              href={`${baseSiteUrl}/#skill`}
+              passHref
+              className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
+                isActive(`${baseSiteUrl}/#skill`)
+                  ? "bg-[#56464d] text-white"
+                  : "hover:bg-[#56464d] hover:text-white"
+              }`}
+            >
+              مهارت‌های من
+            </Link>
+            <Link
+              href="#contact"
+              passHref
+              scroll={false}
+              className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
+                isActive("#contact")
+                  ? "bg-[#56464d] text-white"
+                  : "hover:bg-[#56464d] hover:text-white"
+              }`}
+            >
+              ارتباط با من
+            </Link>
+            <Link
+              href={`${baseSiteUrl}/blog`}
+              passHref
+              className={`text-[#56464d] px-3 py-2 text-lg font-medium h-full rounded-lg ${
+                isActive(`${baseSiteUrl}/article`)
+                  ? "bg-[#56464d] text-white"
+                  : "hover:bg-[#56464d] hover:text-white"
+              }`}
+            >
+              مقالات من
             </Link>
           </div>
 
-          {/* search*/}
+          {/* search */}
           <div className="relative flex-1 max-w-xs ml-4">
             <input
               type="text"
@@ -116,22 +140,24 @@ const TopNav = () => {
             <div className="absolute right-0 w-full bg-white shadow-lg rounded-lg mt-2 z-50">
               {searchResults.length > 0 ? (
                 searchResults.map((article) => (
-                  <Link className="block px-4 py-2 text-[#56464d] hover:bg-blue-50 hover:rounded-lg"
-                  key={article.slug} href={`/blog/${article.category}/${article.slug}`} passHref>
-                      {article.title}
+                  <Link
+                    className="block px-4 py-2 text-[#56464d] hover:bg-blue-50 hover:rounded-lg"
+                    key={article.slug}
+                    href={`/blog/${article.category}/${article.slug}`}
+                    passHref
+                  >
+                    {article.title}
                   </Link>
                 ))
               ) : (
                 noResults && (
-                  <div className="px-4 py-2 text-[#56464d]">
-                    مقاله‌ای پیدا نشد.
-                  </div>
+                  <div className="px-4 py-2 text-[#56464d]">مقاله‌ای پیدا نشد.</div>
                 )
               )}
             </div>
           </div>
 
-          {/* respansive for mobile*/}
+          {/* responsive for mobile */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -165,24 +191,44 @@ const TopNav = () => {
         </div>
       </div>
 
-      {/* show nav mobile*/}
+      {/* show nav mobile */}
       {isOpen && (
         <div className="md:hidden bg-[#ffe082] text-right px-4 py-2">
-          <Link className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white" href={`${baseSiteUrl}`} passHref>
-              صفحه اصلی
+          <Link
+            className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white"
+            href={`${baseSiteUrl}`}
+            passHref
+          >
+            صفحه اصلی
           </Link>
-          <Link className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white" href={`${baseSiteUrl}/#about`} passHref>
-              درباره من
+          <Link
+            className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white"
+            href={`${baseSiteUrl}/#about`}
+            passHref
+          >
+            درباره من
           </Link>
-          <Link  className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white" href={`${baseSiteUrl}/#skill`} passHref>
-              مهارت‌های من
-            
+          <Link
+            className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white"
+            href={`${baseSiteUrl}/#skill`}
+            passHref
+          >
+            مهارت‌های من
           </Link>
-          <Link   className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white" href="/#contact" passHref scroll={false}>
-              ارتباط با من
+          <Link
+            className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white"
+            href="/#contact"
+            passHref
+            scroll={false}
+          >
+            ارتباط با من
           </Link>
-          <Link className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white" href={`${baseSiteUrl}/blog/`} passHref>
-              مقالات من
+          <Link
+            className="block text-[#56464d] px-3 py-2 text-lg font-medium hover:bg-[#56464d] hover:text-white"
+            href={`${baseSiteUrl}/blog/`}
+            passHref
+          >
+            مقالات من
           </Link>
         </div>
       )}
