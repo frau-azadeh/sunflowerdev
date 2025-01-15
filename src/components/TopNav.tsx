@@ -9,7 +9,6 @@ interface Article {
   title: string;
 }
 
-// استفاده از متغیر محیطی برای تعیین آدرس پایه
 const baseSiteUrl =
   process.env.NEXT_PUBLIC_BASE_SITE_URL || "https://sunflower-dev.com";
 
@@ -26,7 +25,7 @@ const TopNav = () => {
   };
 
   useEffect(() => {
-    console.log("Base Site URL:", baseSiteUrl); // برای دیباگ
+    console.log("Base Site URL:", baseSiteUrl);
     const fetchArticles = async () => {
       try {
         const response = await fetch(
@@ -66,8 +65,15 @@ const TopNav = () => {
   };
 
   const isActive = (href: string) => {
-    const fullPath = new URL(href, baseSiteUrl).pathname;
-    return pathname === fullPath;
+    const currentUrl = new URL(href, baseSiteUrl);
+
+    // اگر لینک شامل # است، فقط hash را مقایسه کن
+    if (currentUrl.hash) {
+      return typeof window !== "undefined" && window.location.hash === currentUrl.hash;
+    }
+
+    // در غیر این صورت، مسیر (pathname) را مقایسه کن
+    return pathname === currentUrl.pathname;
   };
 
   return (
