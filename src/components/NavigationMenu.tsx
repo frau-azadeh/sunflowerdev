@@ -4,7 +4,7 @@ import { AiFillInstagram } from "react-icons/ai";
 
 const NavigationMenu: React.FC = () => {
   return (
-    <div className="fixed bottom-0 w-full bg-[#ffe082] flex justify-between items-center px-4 py-3 lg:hidden">
+    <div className="fixed bottom-0 w-full bg-[#ffe082] flex justify-between items-center px-4 py-3 lg:hidden " style={{zIndex:1}}>
       <a
         href="https://www.linkedin.com/in/azadeh-sharifi-soltani"
         target="_blank"
