@@ -6,19 +6,19 @@ A beautifully crafted website using the latest web technologies. Built with pass
 
 ### 💻 Desktop View
 A clean and modern design for desktop users:
+
 ![Desktop View](https://github.com/frau-azadeh/sunflowerdev/blob/main/aboutme.png)
-
----
-
-### 📱 Mobile View
-Fully responsive and optimized for mobile devices:
-![Mobile View](https://github.com/frau-azadeh/sunflowerdev/blob/main/mobile.png)
 
 ---
 
 ### 📊 Tablet View
 Perfectly scales for tablets and mid-sized devices:
+
 ![Tablet View](https://github.com/frau-azadeh/sunflowerdev/blob/main/tablet.png)
+### 📱 Mobile View
+Fully responsive and optimized for mobile devices:
+
+![Mobile View](https://github.com/frau-azadeh/sunflowerdev/blob/main/mobile.png)
 
 ---
 ## 🚀 Features
