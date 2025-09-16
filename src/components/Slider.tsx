@@ -1,7 +1,10 @@
-"use client"
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
+"use client";
+
+import { useEffect, useState } from "react";
+
+import Image from "next/image";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+
 interface Slide {
   image: string;
   title: string;
@@ -10,24 +13,24 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: '/images/slider/header.jpeg',
-    title: 'اسلاید ۱',
-    description: 'توضیحات اسلاید ۱',
+    image: "/images/slider/header.jpeg",
+    title: "اسلاید ۱",
+    description: "توضیحات اسلاید ۱",
   },
   {
-    image: '/images/slider/header1.jpeg',
-    title: 'اسلاید ۲',
-    description: 'توضیحات اسلاید ۲',
+    image: "/images/slider/header1.jpeg",
+    title: "اسلاید ۲",
+    description: "توضیحات اسلاید ۲",
   },
   {
-    image: '/images/slider/header3.jpeg',
-    title: 'اسلاید ۳',
-    description: 'توضیحات اسلاید ۳',
+    image: "/images/slider/header3.jpeg",
+    title: "اسلاید ۳",
+    description: "توضیحات اسلاید ۳",
   },
   {
-    image: '/images/slider/header4.jpeg',
-    title: 'اسلاید 4',
-    description: 'توضیحات اسلاید 4',
+    image: "/images/slider/header4.jpeg",
+    title: "اسلاید 4",
+    description: "توضیحات اسلاید 4",
   },
 ];
 
@@ -37,11 +40,11 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+        prevIndex === slides.length - 1 ? 0 : prevIndex + 1,
       );
-    }, 5000); 
+    }, 5000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   const handlePrev = () => {
@@ -64,19 +67,18 @@ const Slider = () => {
           height={600}
           className="w-full  object-cover lg:h-screen md:h-72 "
         />
-       
       </div>
       <button
         onClick={handlePrev}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#ffe082] text-[#56464d] px-3 py-1 rounded-full font-vazir"
       >
-        <FaAngleDoubleLeft className='h-6 w-6'/>
+        <FaAngleDoubleLeft className="h-6 w-6" />
       </button>
       <button
         onClick={handleNext}
         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#ffe082] text-[#56464d] px-3 py-1 rounded-full font-vazir"
       >
-       <FaAngleDoubleRight className="h-6 w-6"/>
+        <FaAngleDoubleRight className="h-6 w-6" />
       </button>
     </div>
   );

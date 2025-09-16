@@ -1,10 +1,11 @@
 import { Metadata } from "next";
+
 import ArticleClient from "@/components/ArticleClient";
-import TopNav from "@/components/TopNav";
-import Footer from "@/components/Footer";
 import BackButton from "@/components/BackButton";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Footer from "@/components/Footer";
 import NavigationMenu from "@/components/NavigationMenu";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import TopNav from "@/components/TopNav";
 
 interface ArticleData {
   title: string;
@@ -21,7 +22,7 @@ interface ArticleData {
 async function fetchArticles(): Promise<ArticleData[]> {
   const response = await fetch(
     "https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article",
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
   const data = await response.json();
   return Array.isArray(data.articles) ? data.articles : [];
@@ -36,7 +37,6 @@ export async function generateStaticParams() {
   }));
 }
 
-
 export async function generateMetadata({
   params,
 }: {
@@ -46,7 +46,7 @@ export async function generateMetadata({
   const article = articles.find(
     (a) =>
       a.category.toLowerCase() === params.category.toLowerCase() &&
-      a.slug === params.slug
+      a.slug === params.slug,
   );
 
   return {
@@ -83,7 +83,6 @@ export async function generateMetadata({
   };
 }
 
-
 export default async function ArticlePage({
   params,
 }: {
@@ -93,7 +92,7 @@ export default async function ArticlePage({
   const article = articles.find(
     (a) =>
       a.category.toLowerCase() === params.category.toLowerCase() &&
-      a.slug === params.slug
+      a.slug === params.slug,
   );
 
   return (

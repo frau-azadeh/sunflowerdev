@@ -1,17 +1,19 @@
 "use client";
+
 import { useState } from "react";
+
 import ArticleCard from "@/components/ArticleCard";
 import Pagination from "@/components/Pagination";
 
 interface ArticleData {
-    title: string;
-    description: string;
-    date: string;
-    image: string;
-    slug: string;
-    category: string;
-    href: string;
-  }
+  title: string;
+  description: string;
+  date: string;
+  image: string;
+  slug: string;
+  category: string;
+  href: string;
+}
 interface ArticlesClientProps {
   articles: ArticleData[];
 }

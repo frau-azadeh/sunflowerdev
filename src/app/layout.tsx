@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import "./globals.css";
+
 import "../styles/fonts.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "وب سایت آزاده شریفی سلطانی",
-  description: "من آزاده شریفی سلطانی هستم. ‌سایت من در زمینه برنامه نویسی هست و خوشحال میشم با هم اطلاعاتمون رو اینجا به اشتراک بزاریم",
+  description:
+    "من آزاده شریفی سلطانی هستم. ‌سایت من در زمینه برنامه نویسی هست و خوشحال میشم با هم اطلاعاتمون رو اینجا به اشتراک بزاریم",
   authors: [{ name: "آزاده شریفی سلطانی", url: "https://sunflower-dev.com" }],
   keywords: [
     "آزاده شریفی سلطانی",
@@ -82,7 +84,8 @@ export default function RootLayout({
               name: "وب سایت آزاده شریفی سلطانی",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://sunflower-dev.com/search?q={search_term_string}",
+                target:
+                  "https://sunflower-dev.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),

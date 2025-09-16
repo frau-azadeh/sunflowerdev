@@ -1,5 +1,7 @@
-"use client"
+"use client";
+
 import { useEffect, useState } from "react";
+
 import { FaAngleDoubleUp } from "react-icons/fa";
 
 const ScrollToTopButton: React.FC = () => {
@@ -31,7 +33,7 @@ const ScrollToTopButton: React.FC = () => {
         isVisible ? "flex" : "hidden"
       } fixed bottom-28 left-12 w-10 h-10 bg-[#ffe082] text-[#56464d] rounded-full shadow-md justify-center items-center cursor-pointer z-10`}
     >
-      <FaAngleDoubleUp className="text-lg"/>
+      <FaAngleDoubleUp className="text-lg" />
     </button>
   );
 };

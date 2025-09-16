@@ -1,5 +1,7 @@
 "use client";
+
 import { useEffect, useState } from "react";
+
 import ArticleCard from "@/components/ArticleCard";
 
 interface ArticleData {
@@ -25,7 +27,7 @@ export default function CategoryClient({
   useEffect(() => {
     if (category && articles.length > 0) {
       const filtered = articles.filter(
-        (article) => article.category.toLowerCase() === category.toLowerCase()
+        (article) => article.category.toLowerCase() === category.toLowerCase(),
       );
       setFilteredArticles(filtered);
     }

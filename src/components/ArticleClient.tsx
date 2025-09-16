@@ -1,5 +1,7 @@
 "use client";
+
 import { useEffect, useState } from "react";
+
 import ArticleLayout from "@/components/ArticleLayout";
 import ArticleNavigation from "@/components/ArticleNavigation";
 

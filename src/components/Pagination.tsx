@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PaginationProps {
   currentPage: number;
@@ -35,7 +35,9 @@ export default function Pagination({
           key={index}
           onClick={() => handlePageClick(index + 1)}
           className={`px-3 py-1 rounded ${
-            currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300'
+            currentPage === index + 1
+              ? "bg-blue-500 text-white"
+              : "bg-gray-200 hover:bg-gray-300"
           }`}
         >
           {index + 1}

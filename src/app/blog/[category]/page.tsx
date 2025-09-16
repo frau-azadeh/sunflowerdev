@@ -1,10 +1,12 @@
 import { Metadata } from "next";
-import CategoryClient from "@/components/CategoryClient";
-import TopNav from "@/components/TopNav";
-import Footer from "@/components/Footer";
+
 import BackButton from "@/components/BackButton";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import CategoryClient from "@/components/CategoryClient";
+import Footer from "@/components/Footer";
 import NavigationMenu from "@/components/NavigationMenu";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import TopNav from "@/components/TopNav";
+
 interface ArticleData {
   title: string;
   description: string;
@@ -17,7 +19,7 @@ interface ArticleData {
 async function fetchArticles(): Promise<ArticleData[]> {
   const response = await fetch(
     "https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article",
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
   const data = await response.json();
   return Array.isArray(data.articles) ? data.articles : [];

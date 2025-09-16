@@ -5,6 +5,7 @@ A beautifully crafted website using the latest web technologies. Built with pass
 ## 📸 Screenshots
 
 ### 💻 Desktop View
+
 A clean and modern design for desktop users:
 
 ![Desktop View](https://github.com/frau-azadeh/sunflowerdev/blob/main/aboutme.png)
@@ -12,15 +13,19 @@ A clean and modern design for desktop users:
 ---
 
 ### 📊 Tablet View
+
 Perfectly scales for tablets and mid-sized devices:
 
 ![Tablet View](https://github.com/frau-azadeh/sunflowerdev/blob/main/tablet.png)
+
 ### 📱 Mobile View
+
 Fully responsive and optimized for mobile devices:
 
 ![Mobile View](https://github.com/frau-azadeh/sunflowerdev/blob/main/mobile.png)
 
 ---
+
 ## 🚀 Features
 
 - **⚡ Next.js 14**: Leveraging the power of React with server-side rendering and API routes.
@@ -37,41 +42,47 @@ Fully responsive and optimized for mobile devices:
 
 ## 🛠️ Tech Stack
 
-| Technology    | Description                          |
-|---------------|--------------------------------------|
-| **Next.js**   | Framework for React                 |
-| **Tailwind**  | Utility-first CSS Framework         |
-| **TypeScript**| Static Typing for JavaScript        |
-| **Mockfly**   | API for mock data                   |
-| **Vercel**    | Hosting and deployment platform     |
+| Technology     | Description                     |
+| -------------- | ------------------------------- |
+| **Next.js**    | Framework for React             |
+| **Tailwind**   | Utility-first CSS Framework     |
+| **TypeScript** | Static Typing for JavaScript    |
+| **Mockfly**    | API for mock data               |
+| **Vercel**     | Hosting and deployment platform |
 
 ---
 
 ## 📦 Installation
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm or yarn
 
 ### Steps
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/frau-azadeh/sunflower-dev.git
    cd sunflower-dev
-
+   ```
 
 ### Install dependencies
+
     npm install
     or
     yarn install
 
 ### Run the development server
+
     npm run dev
 
 ### Open the app your browser
+
     http://localhost:3000
 
- ## 🤝 Contributing
+## 🤝 Contributing
+
 Contributions are welcome! To contribute:
 
 Fork the repository.
