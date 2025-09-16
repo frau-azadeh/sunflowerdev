@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+        "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/react-slick": "^0.23.13",
     "axios": "^1.7.7",
     "gray-matter": "^4.0.3",
