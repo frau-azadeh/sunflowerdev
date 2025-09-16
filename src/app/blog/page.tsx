@@ -1,10 +1,12 @@
 import { Metadata } from "next";
+
 import ArticlesClient from "@/components/ArticlesClient";
-import TopNav from "@/components/TopNav";
-import Footer from "@/components/Footer";
 import BackButton from "@/components/BackButton";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Footer from "@/components/Footer";
 import NavigationMenu from "@/components/NavigationMenu";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import TopNav from "@/components/TopNav";
+
 interface ArticleData {
   title: string;
   description: string;
@@ -18,11 +20,19 @@ interface ArticleData {
 // data for seo
 export const metadata: Metadata = {
   title: "بلاگ - مقالات تخصصی برنامه نویسی",
-  description: "در این بخش از وب‌سایت آزاده شریفی سلطانی، مقالات تخصصی و آموزنده در زمینه برنامه نویسی و توسعه وب منتشر می‌شود.",
-  keywords: ["بلاگ", "برنامه نویسی", "مقالات تخصصی", "توسعه وب", "آموزش برنامه نویسی"],
+  description:
+    "در این بخش از وب‌سایت آزاده شریفی سلطانی، مقالات تخصصی و آموزنده در زمینه برنامه نویسی و توسعه وب منتشر می‌شود.",
+  keywords: [
+    "بلاگ",
+    "برنامه نویسی",
+    "مقالات تخصصی",
+    "توسعه وب",
+    "آموزش برنامه نویسی",
+  ],
   openGraph: {
     title: "بلاگ - مقالات تخصصی برنامه نویسی",
-    description: "در این بخش از وب‌سایت آزاده شریفی سلطانی، مقالات تخصصی و آموزنده در زمینه برنامه نویسی و توسعه وب منتشر می‌شود.",
+    description:
+      "در این بخش از وب‌سایت آزاده شریفی سلطانی، مقالات تخصصی و آموزنده در زمینه برنامه نویسی و توسعه وب منتشر می‌شود.",
     url: "https://sunflower-dev.com/blog",
     siteName: "وب سایت آزاده شریفی سلطانی",
     images: [
@@ -39,7 +49,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "بلاگ - مقالات تخصصی برنامه نویسی",
-    description: "در این بخش از وب‌سایت آزاده شریفی سلطانی، مقالات تخصصی و آموزنده در زمینه برنامه نویسی و توسعه وب منتشر می‌شود.",
+    description:
+      "در این بخش از وب‌سایت آزاده شریفی سلطانی، مقالات تخصصی و آموزنده در زمینه برنامه نویسی و توسعه وب منتشر می‌شود.",
     creator: "@Azadeh_sharifi",
     images: ["/images/react/what-is-the-react.jpeg"],
   },
@@ -48,7 +59,7 @@ export const metadata: Metadata = {
 async function fetchArticles(): Promise<ArticleData[]> {
   const response = await fetch(
     "https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article",
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
   const data = await response.json();
   return Array.isArray(data) ? data : data.articles || [];

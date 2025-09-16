@@ -1,7 +1,9 @@
 "use client";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+
+import { useEffect, useState } from "react";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Article {
   slug: string;
@@ -29,7 +31,7 @@ const TopNav = () => {
     const fetchArticles = async () => {
       try {
         const response = await fetch(
-          `https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article`
+          `https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article`,
         );
         const data = await response.json();
 
@@ -54,7 +56,7 @@ const TopNav = () => {
 
     if (term.length > 2) {
       const filteredResults = allArticles.filter((article) =>
-        article.title.toLowerCase().includes(term.toLowerCase())
+        article.title.toLowerCase().includes(term.toLowerCase()),
       );
       setSearchResults(filteredResults);
       setNoResults(filteredResults.length === 0);
@@ -69,7 +71,10 @@ const TopNav = () => {
 
     // اگر لینک شامل # است، فقط hash را مقایسه کن
     if (currentUrl.hash) {
-      return typeof window !== "undefined" && window.location.hash === currentUrl.hash;
+      return (
+        typeof window !== "undefined" &&
+        window.location.hash === currentUrl.hash
+      );
     }
 
     // در غیر این صورت، مسیر (pathname) را مقایسه کن
@@ -149,22 +154,22 @@ const TopNav = () => {
               className="w-full px-3 py-2 rounded-lg text-[#56464d] bg-white focus:outline-none"
             />
             <div className="absolute right-0 w-full bg-white shadow-lg rounded-lg mt-2 z-50">
-              {searchResults.length > 0 ? (
-                searchResults.map((article) => (
-                  <Link
-                    className="block px-4 py-2 text-[#56464d] hover:bg-blue-50 hover:rounded-lg"
-                    key={article.slug}
-                    href={`${baseSiteUrl}/blog/${article.category}/${article.slug}`}
-                    passHref
-                  >
-                    {article.title}
-                  </Link>
-                ))
-              ) : (
-                noResults && (
-                  <div className="px-4 py-2 text-[#56464d]">مقاله‌ای پیدا نشد.</div>
-                )
-              )}
+              {searchResults.length > 0
+                ? searchResults.map((article) => (
+                    <Link
+                      className="block px-4 py-2 text-[#56464d] hover:bg-blue-50 hover:rounded-lg"
+                      key={article.slug}
+                      href={`${baseSiteUrl}/blog/${article.category}/${article.slug}`}
+                      passHref
+                    >
+                      {article.title}
+                    </Link>
+                  ))
+                : noResults && (
+                    <div className="px-4 py-2 text-[#56464d]">
+                      مقاله‌ای پیدا نشد.
+                    </div>
+                  )}
             </div>
           </div>
 

@@ -1,20 +1,20 @@
 @font-face {
-    font-family: 'Vazir';
-    src: url('../../public/fonts/Vazir-Bold-FD-WOL.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Vazir';
-    src: url('../../public/fonts/Vazir-Bold-FD-WOL.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Vazir';
-    src: url('../../public/fonts/Vazir-Bold-FD-WOL.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-  }
+  font-family: "Vazir";
+  src: url("../../public/fonts/Vazir-Bold-FD-WOL.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../../public/fonts/Vazir-Bold-FD-WOL.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../../public/fonts/Vazir-Bold-FD-WOL.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}

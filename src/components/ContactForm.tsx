@@ -1,5 +1,7 @@
-"use client"
+"use client";
+
 import React, { useState } from "react";
+
 import axios from "axios";
 
 const ContactForm: React.FC = () => {
@@ -11,7 +13,9 @@ const ContactForm: React.FC = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 

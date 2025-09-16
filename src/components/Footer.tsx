@@ -1,9 +1,12 @@
-"use client"
+"use client";
+
 import React, { useEffect, useState } from "react";
-import { FaLinkedin, FaGithubSquare, FaPhoneSquare } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
+
 import Link from "next/link";
-import ContactForm from "./ContactForm"; 
+import { AiFillInstagram } from "react-icons/ai";
+import { FaGithubSquare, FaLinkedin, FaPhoneSquare } from "react-icons/fa";
+
+import ContactForm from "./ContactForm";
 
 interface ArticleData {
   title: string;
@@ -18,7 +21,7 @@ const Footer: React.FC = () => {
     const fetchArticles = async () => {
       try {
         const response = await fetch(
-          "https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article"
+          "https://api.mockfly.dev/mocks/ef8e4ba5-5dc1-4b36-9bca-5f59afb45ebe/article",
         );
         const data = await response.json();
         setArticles(data.articles.slice(0, 4));
@@ -63,13 +66,16 @@ const Footer: React.FC = () => {
           <div className="w-full sm:w-1/3 px-4 mb-8 sm:mb-0">
             <div>
               <h4 className="text-lg font-bold uppercase mb-6 border-b-2 pb-2">
-                مقالات من :   
+                مقالات من :
               </h4>
               <ul className="space-y-2">
                 {articles.length > 0 ? (
                   articles.map((article) => (
                     <li key={article.slug} className="text-sm capitalize">
-                      <Link className="hover:text-blue-400" href={`/blog/${article.category}/${article.slug}`}>
+                      <Link
+                        className="hover:text-blue-400"
+                        href={`/blog/${article.category}/${article.slug}`}
+                      >
                         {article.title}
                       </Link>
                     </li>
@@ -84,9 +90,9 @@ const Footer: React.FC = () => {
           {/* Social Media Links and Contact Form */}
           <div className="w-full sm:w-1/3 px-4">
             <h4 className="text-lg font-bold uppercase mb-6 border-b-2 pb-2">
-              راههای ارتباطی با من : 
+              راههای ارتباطی با من :
             </h4>
-            <ContactForm /> 
+            <ContactForm />
             <div>
               <ul className="flex space-x-8 mt-6">
                 <li className="pl-8">
@@ -131,9 +137,7 @@ const Footer: React.FC = () => {
 
         {/* Footer Copyright */}
         <div className="mt-12 text-center border-t border-white pt-8">
-          <p className="text-sm">
-          🌻 azadeh sharifi soltani 🌻
-          </p>
+          <p className="text-sm">🌻 azadeh sharifi soltani 🌻</p>
         </div>
       </div>
     </footer>
