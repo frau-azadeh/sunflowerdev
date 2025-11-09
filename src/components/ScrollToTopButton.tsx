@@ -23,22 +23,19 @@ const ScrollToTopButton: React.FC = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    },);
-  },[]);
+    });
+  }, []);
 
   const buttonClass = useMemo(
-    ()=>
+    () =>
       `${
         isVisible ? "flex" : "hidden"
       } fixed bottom-28 left-12 w-10 h-10 bg-[#ffe082] text-[#56464d] rounded-full shadow-md justify-center items-center cursor-pointer z-10`,
-  [isVisible]
-    
+    [isVisible],
   );
 
   return (
-    <button
-      onClick={scrollToTop}
-      className={buttonClass} >
+    <button onClick={scrollToTop} className={buttonClass}>
       <FaAngleDoubleUp className="text-lg" />
     </button>
   );
